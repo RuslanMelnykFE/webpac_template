@@ -59,6 +59,19 @@
   "devDependencies": {
     "autoprefixer": "^9.7.5"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "!(_*).scss": [
+      "stylelint --fix --color --config ./.stylelintrc"
+    ],
+    "*.js": [
+      "eslint --fix --color"
+    ]
+  },
   "repository": "git@github.com:RuslanMelnykFE/webpac_template.git",
   "author": "RuslanMelnykFE <ruslan_melnyk@ukr.net>"
 }
