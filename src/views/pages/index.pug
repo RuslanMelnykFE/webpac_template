@@ -1,0 +1,13 @@
+extends ../layouts/default 
+//- include ../helpers/mixins 
+
+block variables
+    - const title = "Webpack-template"    
+
+block content
+    include ../../components/common/header/header.pug
+    include ../../components/common/content/content.pug
+    include ../../components/common/footer/footer.pug
+
+//- block scripts
+//-     script(src="js/main.js")
