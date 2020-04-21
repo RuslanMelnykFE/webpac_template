@@ -8,7 +8,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PATHS = {
   src: path.join(__dirname, '../src'),
   dist: path.join(__dirname, '../dist'),
-  assets: path.join(__dirname, '../src/assets')
+  assets: path.join(__dirname, '../src/assets'),
+  style: path.join(__dirname, '../src/assets/style')
 };
 
 // ========== Создание лоадеров для стилей ==========
@@ -25,7 +26,7 @@ const styleLoader = function (loader, isDev, optionLoader = {}) {
   const postcssLoader = {
     loader: 'postcss-loader',
     options: {
-      plugins () {
+      plugins() {
         return [
           require('autoprefixer'),
           require('cssnano')
@@ -50,6 +51,15 @@ const styleLoader = function (loader, isDev, optionLoader = {}) {
       sourceMap: isDev
     })
   });
+
+  if (loader === 'sass') {
+    use.push({
+      loader: 'sass-resources-loader',
+      options: {
+        resources: [`${PATHS.style}/settings/_variables.scss`, `${PATHS.style}/mixins/**/*.scss`]
+      }
+    });
+  }
 
   return [{ test: /\.(sa|sc|c)ss$/, use }];
 };

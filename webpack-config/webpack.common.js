@@ -16,7 +16,7 @@ module.exports = {
     paths: utils.PATHS
   },
   entry: {
-    main: './src/js/main.js'
+    main: ['webpack-dev-server/client', 'webpack/hot/dev-server', './src/js/main.js']
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -86,10 +86,11 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
-      jQuery: 'jquery'
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
     }),
     new CopyPlugin([
-      { from: './src/assets/img', to: 'img' },
+      { from: './src/assets/images', to: 'images' },
       { from: './src/assets/fonts', to: 'fonts' }
     ]),
     new WebpackMd5Hash()
