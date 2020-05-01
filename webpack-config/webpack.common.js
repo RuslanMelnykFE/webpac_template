@@ -16,7 +16,7 @@ module.exports = {
     paths: utils.PATHS
   },
   entry: {
-    main: ['webpack-dev-server/client', 'webpack/hot/dev-server', './src/js/main.js']
+    main: ['./src/js/main.js']
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -70,10 +70,16 @@ module.exports = {
         }
       },
       {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
         options: {
-          limit: 10000
+          name: (path) => {
+            const arr = path.split('\\');
+            const index = arr.indexOf('fonts');
+            const _path = arr.slice(index, arr.length - 1).join('/');
+
+            return `../${_path}/[name].[ext]`
+          }
         }
       }
     ]

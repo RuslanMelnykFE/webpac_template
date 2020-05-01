@@ -21,6 +21,6 @@ module.exports = merge(common, {
     contentBase: path.join(__dirname, '../dist'),
     hot: true,
     inline: true,
-    port: 9090
+    port: 9091
   }
 });

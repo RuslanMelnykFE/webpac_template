@@ -52,14 +52,14 @@ const styleLoader = function (loader, isDev, optionLoader = {}) {
     })
   });
 
-  if (loader === 'sass') {
-    use.push({
-      loader: 'sass-resources-loader',
-      options: {
-        resources: [`${PATHS.style}/settings/_variables.scss`, `${PATHS.style}/mixins/**/*.scss`]
-      }
-    });
-  }
+  // if (loader === 'sass') {
+  //   use.push({
+  //     loader: 'sass-resources-loader',
+  //     options: {
+  //       resources: [`${PATHS.style}/settings/_variables.scss`, `${PATHS.style}/mixins/**/*.scss`]
+  //     }
+  //   });
+  // }
 
   return [{ test: /\.(sa|sc|c)ss$/, use }];
 };

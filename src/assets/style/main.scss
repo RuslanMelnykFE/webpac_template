@@ -1,18 +1,10 @@
 // ========== SETTINGS ===========================================
-@import url("./settings/settings.scss");
-@import url("./default.scss");
-// ========== COMPONENTS =============================================
-@import url("../../components/common/header/header.scss");
-@import url("../../components/common/content/tool/tool.scss");
-@import url("../../components/common/content/cards/cards.scss");
-@import url("../../components/common/content/project/project.scss");
+// @import "./settings/typo";
+@import "./settings/settings";
+@import "./default";
 
 // ========== DAFAULT STAYLE =====================================
 h1, h2, h3, h4 {
-    font-family: $font-title;
+    font-family: $fontTitle;
     font-weight: 500;
-}
-
-button, a, p {
-    font-family: $font-text;
 }
